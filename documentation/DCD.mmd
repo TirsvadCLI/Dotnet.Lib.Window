@@ -1,0 +1,44 @@
+classDiagram
+    class Window {
+    }
+
+    class FrameBuffer {
+        + int ScrollWidth
+        + int ScrollHeight
+        + CharBuffer[,] ConsoleBuffer
+        + FrameBuffer(int windowWidth, int windowHeight)
+        + FrameBuffer(int windowWidth, int windowHeight, string fgColor, string bgColor)
+    }
+    note for FrameBuffer "Represents a buffer for the console window."
+
+    class CharHolder {
+        +char Symbol
+        +string FgColor
+        +string BgColor
+        +CharHolder(char symbol, string fgColor, string bgColor)
+        +CharHolder(char symbol)
+        +string ToString()
+    }
+    note for CharHolder "Represents a character with foreground and background colors."
+
+    class Position {
+        +int X
+        +int Y
+        +Position(int x, int y)
+        +Position()
+    }
+    note for Position "Represents a position in 2D space with X and Y coordinates."
+
+    class IFrame {
+        <<interface>>
+        +Position CursorPosition
+        +Position CursorStartPosition
+        +int FrameWidth
+        +int FrameHeight
+        +FrameBuffer WindowBuffer
+    }
+    note for IFrame "Interface for a frame that can be displayed on the screen."
+
+    FrameBuffer --> CharHolder : "contains"
+    Window --> Position : "uses"
+    CharHolder --> Position : "uses"
