@@ -11,15 +11,15 @@ classDiagram
     }
     note for FrameBuffer "Represents a buffer for the console window."
 
-    class CharHolder {
+    class SymbolHolder {
         +char Symbol
         +string FgColor
         +string BgColor
-        +CharHolder(char symbol, string fgColor, string bgColor)
-        +CharHolder(char symbol)
+        +SymbolHolder(char symbol, string fgColor, string bgColor)
+        +SymbolHolder(char symbol)
         +string ToString()
     }
-    note for CharHolder "Represents a character with foreground and background colors."
+    note for SymbolHolder "Represents a character with foreground and background colors."
 
     class Position {
         +int X
@@ -39,6 +39,6 @@ classDiagram
     }
     note for IFrame "Interface for a frame that can be displayed on the screen."
 
-    FrameBuffer --> CharHolder : "contains"
+    FrameBuffer --> SymbolHolder : "contains"
     Window --> Position : "uses"
-    CharHolder --> Position : "uses"
+    SymbolHolder --> Position : "uses"
