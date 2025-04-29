@@ -1,8 +1,8 @@
-namespace TirsvadCLI.Window;
+﻿namespace TirsvadCLI.Window;
 using TirsvadCLI.Window.Interface;
 using TirsvadCLI.Window.Model;
 
-public class Window : Base.Frame, IRendable
+public class Window : Base.FrameBase, IRendable
 {
     public Position CursorPosition { get; set; } ///> Actual cursor position
     public Position CursorStartPosition { get; set; } ///> Start position of the cursor
@@ -12,6 +12,7 @@ public class Window : Base.Frame, IRendable
         CursorPosition = new Position(0, 0);
         CursorStartPosition = new Position(0, 0);
     }
+    public Frame[]? frames; ///> Array of frames 
     public void Render()
     {
         for (int x = 0; x < WindowBuffer.ConsoleBuffer.GetLength(0); x++)
