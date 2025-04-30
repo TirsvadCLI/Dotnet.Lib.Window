@@ -1,6 +1,12 @@
-namespace TirsvadCLI.Window.Interface;
+﻿namespace TirsvadCLI.Window.Interface;
 
-interface IRendable
+/// <summary>
+/// Defines the interface for objects that can be rendered.
+/// </summary>
+public interface IRendAble
 {
+    /// <summary>
+    /// Renders the object.
+    /// </summary>
     void Render();
 }
